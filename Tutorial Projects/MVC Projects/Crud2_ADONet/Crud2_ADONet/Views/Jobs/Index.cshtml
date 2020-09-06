@@ -1,0 +1,67 @@
+﻿@model IEnumerable<Crud2_ADONet.Controllers.JobsController.JobModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+
+    @Html.ActionLink("Create New", "Create", FormMethod.Post, new {@class = "btn btn-info btn-lg mb-10"})
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Pickup)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Destination)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PaxName)
+        </th>
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PaxMobileNo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NoOfPassengers)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Fare)
+        </th>
+        
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Pickup)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Destination)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PaxName)
+        </td>
+                <td>
+            @Html.DisplayFor(modelItem => item.PaxMobileNo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NoOfPassengers)
+        </td>
+        
+        <td>
+            @Html.DisplayFor(modelItem => item.Fare)
+        </td>
+        
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }, new { @class = "btn btn-warning btn-sm" }) |
+            @Html.ActionLink("Details", "Details", new { id = item.ID }, new {@class = "btn btn-success btn-sm" }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID }, new { @class = "btn btn-danger btn-sm" })
+        </td>
+    </tr>
+}
+
+</table>

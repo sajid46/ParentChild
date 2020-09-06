@@ -1,0 +1,31 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1>Prime Number</h1>
+    <hr />
+
+    <input class="fotm-control" id="inp-number" />
+    <button class="btn btn-info btn-sm" onclick="fn_click()">Submit</button>
+   
+</div>
+
+<script>
+    function fn_click() {
+        $.ajax({
+            type: "POST",
+            url: '/Home/Calculate',
+            dataType: 'json',
+            data: '{no: ' + $('#inp-number').val() + '}',
+            contentType: "application/json; charset=utf-8",
+            success: function (data) {
+                alert(data);
+            },
+            error: function (err) {
+                alert(err);
+            }
+
+        });
+    }
+</script>

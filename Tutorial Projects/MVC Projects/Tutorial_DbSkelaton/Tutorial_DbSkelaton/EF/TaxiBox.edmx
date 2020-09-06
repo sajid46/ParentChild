@@ -1,0 +1,1729 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="TaxiBoxModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Airports">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Airports" Type="varchar" MaxLength="250" />
+          <Property Name="City" Type="varchar" MaxLength="150" />
+          <Property Name="DeletedFlag" Type="bit" />
+          <Property Name="Created" Type="datetime" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'TaxiBox.dbo.Airports2' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="Airports2">
+          <Property Name="ID" Type="int" />
+          <Property Name="Airport" Type="nvarchar" MaxLength="250" />
+          <Property Name="AirportCode" Type="nvarchar" MaxLength="20" />
+          <Property Name="City" Type="nvarchar" MaxLength="100" />
+          <Property Name="Country" Type="nvarchar" MaxLength="100" />
+          <Property Name="CountryAbbrev" Type="nvarchar" MaxLength="20" />
+          <Property Name="WorldAreaCode" Type="nvarchar" MaxLength="20" />
+          <Property Name="DeletedFlag" Type="bit" />
+          <Property Name="Created" Type="datetime" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="Updated" Type="datetime" />
+          <Property Name="UpdatedBy" Type="nvarchar" MaxLength="50" />
+        </EntityType>-->
+        <EntityType Name="Author">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="autogenerateinfo">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="WebServiceName" Type="varchar" MaxLength="150" />
+          <Property Name="TableName" Type="varchar" MaxLength="150" />
+          <Property Name="Datacomponentname" Type="varchar" MaxLength="150" />
+          <Property Name="BusinessComponentname" Type="varchar" MaxLength="150" />
+          <Property Name="FetchSP" Type="bit" />
+          <Property Name="InsertSP" Type="bit" />
+          <Property Name="UpdateSP" Type="bit" />
+          <Property Name="DeleteSP" Type="bit" />
+          <Property Name="ReturnDataset" Type="bit" />
+          <Property Name="ReturnDataReader" Type="bit" />
+          <Property Name="ReturnDataTable" Type="bit" />
+          <Property Name="SPU_ExecuteNonQuery" Type="bit" />
+          <Property Name="SPU_ExecuteScalar" Type="bit" />
+          <Property Name="ReturnXmlReader" Type="bit" />
+          <Property Name="DeletedFlag" Type="bit" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'TaxiBox.dbo.Book' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="Book">
+          <Property Name="AuthorID" Type="int" />
+          <Property Name="Book" Type="nchar" MaxLength="10" />
+          <Property Name="Published" Type="datetime" />
+        </EntityType>-->
+        <EntityType Name="CarTypes">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="50" />
+          <Property Name="NoOfPeople" Type="int" />
+          <Property Name="LargeSuitecase" Type="tinyint" />
+          <Property Name="MediumSuitecase" Type="tinyint" />
+          <Property Name="WheelChairAccessible" Type="bit" />
+          <Property Name="PercentIncreament" Type="varchar" MaxLength="6" />
+          <Property Name="VehImage" Type="image" />
+          <Property Name="Created" Type="smalldatetime" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="20" />
+          <Property Name="Updated" Type="smalldatetime" />
+          <Property Name="UpdatedBy" Type="varbinary" MaxLength="20" />
+          <Property Name="DeletedFlag" Type="bit" />
+        </EntityType>
+        <EntityType Name="Cookies">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CookrieID" Type="int" />
+          <Property Name="Expires" Type="datetime" />
+          <Property Name="Created" Type="datetime" />
+          <Property Name="Updated" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Counter">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Counter" Type="int" />
+          <Property Name="TotalCounter" Type="int" />
+          <Property Name="Created" Type="datetime" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="20" />
+          <Property Name="DeletedFlag" Type="bit" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'TaxiBox.dbo.Drivers' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Drivers">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="Name" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="DriverNo" Type="nvarchar" MaxLength="10" />
+          <Property Name="Address1" Type="nvarchar" MaxLength="100" />
+          <Property Name="Address2" Type="nvarchar" MaxLength="100" />
+          <Property Name="Town" Type="nvarchar" MaxLength="100" />
+          <Property Name="PostCode" Type="nvarchar" MaxLength="15" />
+          <Property Name="TelNo" Type="nvarchar" MaxLength="15" />
+          <Property Name="MobileNo" Type="nvarchar" MaxLength="15" />
+          <Property Name="Email" Type="nvarchar" MaxLength="500" />
+          <Property Name="VehicleID" Type="tinyint" />
+          <Property Name="Created" Type="smalldatetime" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="20" />
+          <Property Name="Updated" Type="smalldatetime" />
+          <Property Name="UpdatedBy" Type="varbinary" MaxLength="20" />
+          <Property Name="DeletedFlag" Type="bit" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'TaxiBox.dbo.DriversStatus' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="DriversStatus">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DriverNo" Type="nvarchar" MaxLength="10" />
+          <Property Name="Status" Type="nvarchar" MaxLength="15" />
+          <Property Name="Location" Type="nvarchar" MaxLength="500" />
+          <Property Name="Created" Type="smalldatetime" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="20" />
+          <Property Name="Updated" Type="smalldatetime" />
+          <Property Name="UpdatedBy" Type="varbinary" MaxLength="20" />
+          <Property Name="DeletedFlag" Type="bit" />
+        </EntityType>
+        <EntityType Name="FaresFromGatwick">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Dest" Type="varchar" MaxLength="200" />
+          <Property Name="Fare" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Created" Type="datetime" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="Updated" Type="datetime" />
+          <Property Name="UpdatedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="DeletedFlag" Type="bit" />
+        </EntityType>
+        <EntityType Name="FixedPriced_Journies">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Pickup" Type="varchar" MaxLength="500" />
+          <Property Name="Destination" Type="varchar" MaxLength="500" />
+          <Property Name="DayPrice" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="NightPrice" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="DeletedFlag" Type="bit" />
+          <Property Name="Created" Type="datetime" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
+          <Property Name="Updated" Type="datetime" />
+          <Property Name="UpdatedBy" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Jobs">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Pickup" Type="varchar" MaxLength="1000" />
+          <Property Name="Destination" Type="varchar" MaxLength="1000" />
+          <Property Name="PaxName" Type="varchar" MaxLength="30" />
+          <Property Name="PaxEmail" Type="nvarchar" MaxLength="500" />
+          <Property Name="PaxMobileNo" Type="nvarchar" MaxLength="20" />
+          <Property Name="NoOfPassengers" Type="int" />
+          <Property Name="Distance" Type="nvarchar" MaxLength="20" />
+          <Property Name="DurationMinutes" Type="nvarchar" MaxLength="20" />
+          <Property Name="Fare" Type="float" />
+          <Property Name="MeetandGreetCharges" Type="float" />
+          <Property Name="VehicleTypeCharges" Type="float" />
+          <Property Name="OtherCharges" Type="float" />
+          <Property Name="Discount" Type="float" />
+          <Property Name="JobStatus" Type="varchar" MaxLength="20" />
+          <Property Name="DateTimePickup" Type="datetime" />
+          <Property Name="DriverNo" Type="varchar" MaxLength="30" />
+          <Property Name="Created" Type="datetime" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="100" />
+          <Property Name="Updated" Type="datetime" />
+          <Property Name="UpdatedBy" Type="nvarchar" MaxLength="100" />
+          <Property Name="DeletedFlag" Type="bit" />
+          <Property Name="IsPaid" Type="bit" />
+          <Property Name="PaymentMethod" Type="varchar" MaxLength="10" />
+          <Property Name="VehicleRequiredID" Type="int" />
+          <Property Name="DirverComm" Type="float" />
+          <Property Name="IsMG" Type="bit" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'TaxiBox.dbo.JobsNotes2' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="JobsNotes2">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Notes" Type="varchar" MaxLength="500" />
+          <Property Name="Created" Type="datetime" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="Updated" Type="datetime" />
+          <Property Name="UpdatedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="DeletedFlag" Type="bit" />
+          <Property Name="JobID" Type="int" />
+        </EntityType>
+        <EntityType Name="JobsOld">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Pickup" Type="varchar" MaxLength="1000" />
+          <Property Name="Destination" Type="varchar" MaxLength="1000" />
+          <Property Name="PassengerName" Type="varchar" MaxLength="30" />
+          <Property Name="NoOfPassengers" Type="int" />
+          <Property Name="Fare" Type="float" />
+          <Property Name="Discount" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="JobStatus" Type="varchar" MaxLength="20" />
+          <Property Name="DateTimePickup" Type="nvarchar" MaxLength="20" />
+          <Property Name="Notes" Type="varchar" MaxLength="600" />
+          <Property Name="DriverNo" Type="varchar" MaxLength="30" />
+          <Property Name="Created" Type="smalldatetime" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="100" />
+          <Property Name="Updated" Type="smalldatetime" />
+          <Property Name="UpdatedBy" Type="nvarchar" MaxLength="100" />
+          <Property Name="DeletedFlag" Type="bit" />
+          <Property Name="PaidTF" Type="bit" />
+          <Property Name="PaymentMethod" Type="varchar" MaxLength="10" />
+          <Property Name="VehicleRequiredID" Type="int" />
+          <Property Name="DirverComm" Type="float" />
+          <Property Name="MeetAndGreet" Type="bit" />
+          <Property Name="Distance" Type="float" />
+          <Property Name="DurationMinutes" Type="int" />
+        </EntityType>
+        <EntityType Name="JobsPaymentTypes_LK">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ShortDesc" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Created" Type="datetime" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
+          <Property Name="Updated" Type="datetime" />
+          <Property Name="UpdatedBy" Type="varchar" MaxLength="50" />
+          <Property Name="DeletedFlag" Type="bit" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'TaxiBox.dbo.PaxDetails' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="PaxDetails">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="JobID" />
+            <PropertyRef Name="Name" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="JobID" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Address1" Type="nvarchar" MaxLength="100" />
+          <Property Name="Address2" Type="nvarchar" MaxLength="100" />
+          <Property Name="Town" Type="nvarchar" MaxLength="100" />
+          <Property Name="PostCode" Type="nvarchar" MaxLength="15" />
+          <Property Name="TelNo" Type="nvarchar" MaxLength="15" />
+          <Property Name="MobileNo" Type="nvarchar" MaxLength="15" />
+          <Property Name="Email" Type="nvarchar" MaxLength="500" />
+          <Property Name="Created" Type="smalldatetime" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="20" />
+          <Property Name="Updated" Type="smalldatetime" />
+          <Property Name="UpdatedBy" Type="varbinary" MaxLength="20" />
+          <Property Name="DeletedFlag" Type="bit" />
+        </EntityType>
+        <EntityType Name="Prices">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Pickup" Type="varchar" MaxLength="500" />
+          <Property Name="Destination" Type="varchar" MaxLength="500" />
+          <Property Name="DayPrice" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="NightPrice" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="DeletedFlag" Type="bit" />
+          <Property Name="Created" Type="datetime" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'TaxiBox.dbo.Settings' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Settings">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="Description" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Value" Type="nvarchar" MaxLength="100" />
+          <Property Name="Created" Type="smalldatetime" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="20" />
+          <Property Name="Updated" Type="smalldatetime" />
+          <Property Name="UpdatedBy" Type="varbinary" MaxLength="20" />
+          <Property Name="DeletedFlag" Type="bit" />
+        </EntityType>
+        <EntityType Name="SettingsFare">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BaseRate" Type="decimal" Precision="5" Scale="2" Nullable="false" />
+          <Property Name="BaseRatePerDistance" Type="decimal" Precision="5" Scale="2" Nullable="false" />
+          <Property Name="BaseRateDistanceType" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="StartMeterFare" Type="decimal" Precision="5" Scale="2" />
+          <Property Name="StartMeterFarePerDistanceType" Type="varchar" MaxLength="20" />
+          <Property Name="DeletedFlag" Type="bit" Nullable="false" />
+          <Property Name="Created" Type="datetime" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
+          <Property Name="Updated" Type="datetime" />
+          <Property Name="UpdatedBy" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'TaxiBox.dbo.SettingsTmp' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="SettingsTmp">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="Description" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Value" Type="nvarchar" MaxLength="100" />
+          <Property Name="Created" Type="smalldatetime" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="20" />
+          <Property Name="Updated" Type="smalldatetime" />
+          <Property Name="UpdatedBy" Type="varbinary" MaxLength="20" />
+          <Property Name="DeletedFlag" Type="bit" />
+        </EntityType>
+        <EntityType Name="TaxiCompanies">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CompanyName" Type="varchar" MaxLength="300" />
+          <Property Name="Address" Type="varchar" MaxLength="300" />
+          <Property Name="Town" Type="varchar" MaxLength="100" />
+          <Property Name="County" Type="varchar" MaxLength="100" />
+          <Property Name="Country" Type="varchar" MaxLength="100" />
+          <Property Name="PostCode" Type="varchar" MaxLength="20" />
+          <Property Name="Telephone" Type="varchar" MaxLength="20" />
+          <Property Name="Email" Type="varchar" MaxLength="500" />
+          <Property Name="Notes" Type="varchar" MaxLength="600" />
+          <Property Name="Created" Type="smalldatetime" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="20" />
+          <Property Name="Updated" Type="smalldatetime" />
+          <Property Name="UpdatedBy" Type="varbinary" MaxLength="20" />
+          <Property Name="DeletedFlag" Type="bit" />
+        </EntityType>
+        <EntityType Name="TownsVillages">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TownsVillages" Type="varchar" MaxLength="150" />
+          <Property Name="County" Type="varchar" MaxLength="150" />
+          <Property Name="Country" Type="varchar" MaxLength="50" />
+          <Property Name="DeletedFlag" Type="bit" />
+          <Property Name="Created" Type="datetime" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'TaxiBox.dbo.Users' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="UserID" Type="varchar" MaxLength="50" />
+          <Property Name="Password" Type="varchar" MaxLength="50" />
+          <Property Name="IsSuperAdmin" Type="bit" />
+          <Property Name="IsAdmin" Type="bit" />
+          <Property Name="IsUser" Type="bit" />
+          <Property Name="DeletedFlag" Type="bit" />
+          <Property Name="Created" Type="datetime" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="UsersBlacklist">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IP" Type="varchar" MaxLength="20" />
+          <Property Name="ExpireDays" Type="int" />
+          <Property Name="Created" Type="datetime" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="30" />
+          <Property Name="DeletedFlag" Type="bit" />
+        </EntityType>
+        <EntityType Name="VehicleTypes_LK">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="50" />
+          <Property Name="NoOfPeople" Type="int" />
+          <Property Name="LargeSuitecase" Type="tinyint" />
+          <Property Name="MediumSuitecase" Type="tinyint" />
+          <Property Name="WheelChairAccessible" Type="bit" />
+          <Property Name="PercentIncreament" Type="varchar" MaxLength="6" />
+          <Property Name="VehImage" Type="image" />
+          <Property Name="Created" Type="smalldatetime" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="20" />
+          <Property Name="Updated" Type="smalldatetime" />
+          <Property Name="UpdatedBy" Type="varbinary" MaxLength="20" />
+          <Property Name="DeletedFlag" Type="bit" />
+        </EntityType>
+        <EntityType Name="Visitors">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Visitor" Type="nvarchar" MaxLength="50" />
+          <Property Name="Created" Type="datetime" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="Updated" Type="datetime" />
+          <Property Name="UpdatedBy" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'TaxiBox.dbo.vw_FaresFromGatwick' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="vw_FaresFromGatwick">
+          <Property Name="Dest" Type="varchar" MaxLength="200" />
+          <Property Name="SaloonFare" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="EstateFare" Type="float" />
+          <Property Name="ExecutiveFare" Type="float" />
+          <Property Name="Seaters6Fare" Type="float" />
+          <Property Name="Seaters8Fare" Type="float" />
+          <Property Name="Seaters5Fare" Type="float" />
+        </EntityType>-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'TaxiBox.dbo.vw_JobswithNotes' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vw_JobswithNotes">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="Pickup" Type="varchar" MaxLength="1000" />
+          <Property Name="Destination" Type="varchar" MaxLength="1000" />
+          <Property Name="PaxName" Type="varchar" MaxLength="30" />
+          <Property Name="PaxEmail" Type="nvarchar" MaxLength="500" />
+          <Property Name="PaxMobileNo" Type="nvarchar" MaxLength="20" />
+          <Property Name="NoOfPassengers" Type="int" />
+          <Property Name="Distance" Type="nvarchar" MaxLength="20" />
+          <Property Name="DurationMinutes" Type="nvarchar" MaxLength="20" />
+          <Property Name="Fare" Type="float" />
+          <Property Name="MeetandGreetCharges" Type="float" />
+          <Property Name="VehicleTypeCharges" Type="float" />
+          <Property Name="OtherCharges" Type="float" />
+          <Property Name="Discount" Type="float" />
+          <Property Name="JobStatus" Type="varchar" MaxLength="20" />
+          <Property Name="DateTimePickup" Type="nvarchar" MaxLength="20" />
+          <Property Name="DriverNo" Type="varchar" MaxLength="30" />
+          <Property Name="Created" Type="datetime" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="100" />
+          <Property Name="Updated" Type="datetime" />
+          <Property Name="UpdatedBy" Type="nvarchar" MaxLength="100" />
+          <Property Name="DeletedFlag" Type="bit" />
+          <Property Name="IsPaid" Type="bit" />
+          <Property Name="PaymentMethod" Type="varchar" MaxLength="10" />
+          <Property Name="VehicleRequiredID" Type="int" />
+          <Property Name="DirverComm" Type="float" />
+          <Property Name="IsMG" Type="bit" />
+          <Property Name="Notes" Type="varchar" MaxLength="500" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'TaxiBox.dbo.vw_TownsVillages' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vw_TownsVillages">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TownsVillages" Type="varchar" MaxLength="354" />
+          <Property Name="Created" Type="datetime" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
+          <Property Name="DeletedFlag" Type="bit" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'TaxiBox.dbo.vw_TownsVillages_DISTINCT' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vw_TownsVillages_DISTINCT">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="TownsVillages" Type="varchar" MaxLength="150" />
+          <Property Name="DeletedFlag" Type="bit" />
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'TaxiBox.dbo.vw_VehicleSelector' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vw_VehicleSelector">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="50" />
+          <Property Name="NoOfPeople" Type="int" />
+          <Property Name="LargeSuitecase" Type="tinyint" />
+          <Property Name="MediumSuitecase" Type="tinyint" />
+          <Property Name="WheelChairAccessible" Type="bit" />
+          <Property Name="PercentIncreament" Type="varchar" MaxLength="6" />
+          <Property Name="VehImage" Type="image" />
+          <Property Name="Created" Type="smalldatetime" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="20" />
+          <Property Name="Updated" Type="smalldatetime" />
+          <Property Name="UpdatedBy" Type="varbinary" MaxLength="20" />
+          <Property Name="DeletedFlag" Type="bit" />
+        </EntityType>
+        <EntityContainer Name="TaxiBoxModelStoreContainer">
+          <EntitySet Name="Airports" EntityType="Self.Airports" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Author" EntityType="Self.Author" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="autogenerateinfo" EntityType="Self.autogenerateinfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CarTypes" EntityType="Self.CarTypes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Cookies" EntityType="Self.Cookies" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Counter" EntityType="Self.Counter" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FaresFromGatwick" EntityType="Self.FaresFromGatwick" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FixedPriced_Journies" EntityType="Self.FixedPriced_Journies" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Jobs" EntityType="Self.Jobs" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="JobsOld" EntityType="Self.JobsOld" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="JobsPaymentTypes_LK" EntityType="Self.JobsPaymentTypes_LK" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Prices" EntityType="Self.Prices" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SettingsFare" EntityType="Self.SettingsFare" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TaxiCompanies" EntityType="Self.TaxiCompanies" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TownsVillages" EntityType="Self.TownsVillages" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UsersBlacklist" EntityType="Self.UsersBlacklist" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="VehicleTypes_LK" EntityType="Self.VehicleTypes_LK" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Visitors" EntityType="Self.Visitors" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Drivers" EntityType="Self.Drivers" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Drivers].[ID] AS [ID], 
+    [Drivers].[Name] AS [Name], 
+    [Drivers].[DriverNo] AS [DriverNo], 
+    [Drivers].[Address1] AS [Address1], 
+    [Drivers].[Address2] AS [Address2], 
+    [Drivers].[Town] AS [Town], 
+    [Drivers].[PostCode] AS [PostCode], 
+    [Drivers].[TelNo] AS [TelNo], 
+    [Drivers].[MobileNo] AS [MobileNo], 
+    [Drivers].[Email] AS [Email], 
+    [Drivers].[VehicleID] AS [VehicleID], 
+    [Drivers].[Created] AS [Created], 
+    [Drivers].[CreatedBy] AS [CreatedBy], 
+    [Drivers].[Updated] AS [Updated], 
+    [Drivers].[UpdatedBy] AS [UpdatedBy], 
+    [Drivers].[DeletedFlag] AS [DeletedFlag]
+    FROM [dbo].[Drivers] AS [Drivers]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="DriversStatus" EntityType="Self.DriversStatus" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [DriversStatus].[ID] AS [ID], 
+    [DriversStatus].[DriverNo] AS [DriverNo], 
+    [DriversStatus].[Status] AS [Status], 
+    [DriversStatus].[Location] AS [Location], 
+    [DriversStatus].[Created] AS [Created], 
+    [DriversStatus].[CreatedBy] AS [CreatedBy], 
+    [DriversStatus].[Updated] AS [Updated], 
+    [DriversStatus].[UpdatedBy] AS [UpdatedBy], 
+    [DriversStatus].[DeletedFlag] AS [DeletedFlag]
+    FROM [dbo].[DriversStatus] AS [DriversStatus]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="JobsNotes2" EntityType="Self.JobsNotes2" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [JobsNotes2].[ID] AS [ID], 
+    [JobsNotes2].[Notes] AS [Notes], 
+    [JobsNotes2].[Created] AS [Created], 
+    [JobsNotes2].[CreatedBy] AS [CreatedBy], 
+    [JobsNotes2].[Updated] AS [Updated], 
+    [JobsNotes2].[UpdatedBy] AS [UpdatedBy], 
+    [JobsNotes2].[DeletedFlag] AS [DeletedFlag], 
+    [JobsNotes2].[JobID] AS [JobID]
+    FROM [dbo].[JobsNotes2] AS [JobsNotes2]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="PaxDetails" EntityType="Self.PaxDetails" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [PaxDetails].[ID] AS [ID], 
+    [PaxDetails].[JobID] AS [JobID], 
+    [PaxDetails].[Name] AS [Name], 
+    [PaxDetails].[Address1] AS [Address1], 
+    [PaxDetails].[Address2] AS [Address2], 
+    [PaxDetails].[Town] AS [Town], 
+    [PaxDetails].[PostCode] AS [PostCode], 
+    [PaxDetails].[TelNo] AS [TelNo], 
+    [PaxDetails].[MobileNo] AS [MobileNo], 
+    [PaxDetails].[Email] AS [Email], 
+    [PaxDetails].[Created] AS [Created], 
+    [PaxDetails].[CreatedBy] AS [CreatedBy], 
+    [PaxDetails].[Updated] AS [Updated], 
+    [PaxDetails].[UpdatedBy] AS [UpdatedBy], 
+    [PaxDetails].[DeletedFlag] AS [DeletedFlag]
+    FROM [dbo].[PaxDetails] AS [PaxDetails]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Settings" EntityType="Self.Settings" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Settings].[ID] AS [ID], 
+    [Settings].[Description] AS [Description], 
+    [Settings].[Value] AS [Value], 
+    [Settings].[Created] AS [Created], 
+    [Settings].[CreatedBy] AS [CreatedBy], 
+    [Settings].[Updated] AS [Updated], 
+    [Settings].[UpdatedBy] AS [UpdatedBy], 
+    [Settings].[DeletedFlag] AS [DeletedFlag]
+    FROM [dbo].[Settings] AS [Settings]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="SettingsTmp" EntityType="Self.SettingsTmp" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [SettingsTmp].[ID] AS [ID], 
+    [SettingsTmp].[Description] AS [Description], 
+    [SettingsTmp].[Value] AS [Value], 
+    [SettingsTmp].[Created] AS [Created], 
+    [SettingsTmp].[CreatedBy] AS [CreatedBy], 
+    [SettingsTmp].[Updated] AS [Updated], 
+    [SettingsTmp].[UpdatedBy] AS [UpdatedBy], 
+    [SettingsTmp].[DeletedFlag] AS [DeletedFlag]
+    FROM [dbo].[SettingsTmp] AS [SettingsTmp]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Users" EntityType="Self.Users" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Users].[ID] AS [ID], 
+    [Users].[Name] AS [Name], 
+    [Users].[UserID] AS [UserID], 
+    [Users].[Password] AS [Password], 
+    [Users].[IsSuperAdmin] AS [IsSuperAdmin], 
+    [Users].[IsAdmin] AS [IsAdmin], 
+    [Users].[IsUser] AS [IsUser], 
+    [Users].[DeletedFlag] AS [DeletedFlag], 
+    [Users].[Created] AS [Created], 
+    [Users].[CreatedBy] AS [CreatedBy]
+    FROM [dbo].[Users] AS [Users]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vw_JobswithNotes" EntityType="Self.vw_JobswithNotes" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vw_JobswithNotes].[ID] AS [ID], 
+    [vw_JobswithNotes].[Pickup] AS [Pickup], 
+    [vw_JobswithNotes].[Destination] AS [Destination], 
+    [vw_JobswithNotes].[PaxName] AS [PaxName], 
+    [vw_JobswithNotes].[PaxEmail] AS [PaxEmail], 
+    [vw_JobswithNotes].[PaxMobileNo] AS [PaxMobileNo], 
+    [vw_JobswithNotes].[NoOfPassengers] AS [NoOfPassengers], 
+    [vw_JobswithNotes].[Distance] AS [Distance], 
+    [vw_JobswithNotes].[DurationMinutes] AS [DurationMinutes], 
+    [vw_JobswithNotes].[Fare] AS [Fare], 
+    [vw_JobswithNotes].[MeetandGreetCharges] AS [MeetandGreetCharges], 
+    [vw_JobswithNotes].[VehicleTypeCharges] AS [VehicleTypeCharges], 
+    [vw_JobswithNotes].[OtherCharges] AS [OtherCharges], 
+    [vw_JobswithNotes].[Discount] AS [Discount], 
+    [vw_JobswithNotes].[JobStatus] AS [JobStatus], 
+    [vw_JobswithNotes].[DateTimePickup] AS [DateTimePickup], 
+    [vw_JobswithNotes].[DriverNo] AS [DriverNo], 
+    [vw_JobswithNotes].[Created] AS [Created], 
+    [vw_JobswithNotes].[CreatedBy] AS [CreatedBy], 
+    [vw_JobswithNotes].[Updated] AS [Updated], 
+    [vw_JobswithNotes].[UpdatedBy] AS [UpdatedBy], 
+    [vw_JobswithNotes].[DeletedFlag] AS [DeletedFlag], 
+    [vw_JobswithNotes].[IsPaid] AS [IsPaid], 
+    [vw_JobswithNotes].[PaymentMethod] AS [PaymentMethod], 
+    [vw_JobswithNotes].[VehicleRequiredID] AS [VehicleRequiredID], 
+    [vw_JobswithNotes].[DirverComm] AS [DirverComm], 
+    [vw_JobswithNotes].[IsMG] AS [IsMG], 
+    [vw_JobswithNotes].[Notes] AS [Notes]
+    FROM [dbo].[vw_JobswithNotes] AS [vw_JobswithNotes]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vw_TownsVillages" EntityType="Self.vw_TownsVillages" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vw_TownsVillages].[ID] AS [ID], 
+    [vw_TownsVillages].[TownsVillages] AS [TownsVillages], 
+    [vw_TownsVillages].[Created] AS [Created], 
+    [vw_TownsVillages].[CreatedBy] AS [CreatedBy], 
+    [vw_TownsVillages].[DeletedFlag] AS [DeletedFlag]
+    FROM [dbo].[vw_TownsVillages] AS [vw_TownsVillages]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vw_TownsVillages_DISTINCT" EntityType="Self.vw_TownsVillages_DISTINCT" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vw_TownsVillages_DISTINCT].[TownsVillages] AS [TownsVillages], 
+    [vw_TownsVillages_DISTINCT].[DeletedFlag] AS [DeletedFlag], 
+    [vw_TownsVillages_DISTINCT].[ID] AS [ID]
+    FROM [dbo].[vw_TownsVillages_DISTINCT] AS [vw_TownsVillages_DISTINCT]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vw_VehicleSelector" EntityType="Self.vw_VehicleSelector" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vw_VehicleSelector].[ID] AS [ID], 
+    [vw_VehicleSelector].[Description] AS [Description], 
+    [vw_VehicleSelector].[NoOfPeople] AS [NoOfPeople], 
+    [vw_VehicleSelector].[LargeSuitecase] AS [LargeSuitecase], 
+    [vw_VehicleSelector].[MediumSuitecase] AS [MediumSuitecase], 
+    [vw_VehicleSelector].[WheelChairAccessible] AS [WheelChairAccessible], 
+    [vw_VehicleSelector].[PercentIncreament] AS [PercentIncreament], 
+    [vw_VehicleSelector].[VehImage] AS [VehImage], 
+    [vw_VehicleSelector].[Created] AS [Created], 
+    [vw_VehicleSelector].[CreatedBy] AS [CreatedBy], 
+    [vw_VehicleSelector].[Updated] AS [Updated], 
+    [vw_VehicleSelector].[UpdatedBy] AS [UpdatedBy], 
+    [vw_VehicleSelector].[DeletedFlag] AS [DeletedFlag]
+    FROM [dbo].[vw_VehicleSelector] AS [vw_VehicleSelector]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="TaxiBoxModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Airport">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Airports" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="City" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="DeletedFlag" Type="Boolean" />
+          <Property Name="Created" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Author">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="autogenerateinfo">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="WebServiceName" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="TableName" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="Datacomponentname" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="BusinessComponentname" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="FetchSP" Type="Boolean" />
+          <Property Name="InsertSP" Type="Boolean" />
+          <Property Name="UpdateSP" Type="Boolean" />
+          <Property Name="DeleteSP" Type="Boolean" />
+          <Property Name="ReturnDataset" Type="Boolean" />
+          <Property Name="ReturnDataReader" Type="Boolean" />
+          <Property Name="ReturnDataTable" Type="Boolean" />
+          <Property Name="SPU_ExecuteNonQuery" Type="Boolean" />
+          <Property Name="SPU_ExecuteScalar" Type="Boolean" />
+          <Property Name="ReturnXmlReader" Type="Boolean" />
+          <Property Name="DeletedFlag" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="CarType">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="NoOfPeople" Type="Int32" />
+          <Property Name="LargeSuitecase" Type="Byte" />
+          <Property Name="MediumSuitecase" Type="Byte" />
+          <Property Name="WheelChairAccessible" Type="Boolean" />
+          <Property Name="PercentIncreament" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+          <Property Name="VehImage" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Created" Type="DateTime" Precision="0" />
+          <Property Name="CreatedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Updated" Type="DateTime" Precision="0" />
+          <Property Name="UpdatedBy" Type="Binary" MaxLength="20" FixedLength="false" />
+          <Property Name="DeletedFlag" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="Cooky">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CookrieID" Type="Int32" />
+          <Property Name="Expires" Type="DateTime" Precision="3" />
+          <Property Name="Created" Type="DateTime" Precision="3" />
+          <Property Name="Updated" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="Counter">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Counter1" Type="Int32" />
+          <Property Name="TotalCounter" Type="Int32" />
+          <Property Name="Created" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="DeletedFlag" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="FaresFromGatwick">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Dest" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Fare" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Created" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Updated" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DeletedFlag" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="FixedPriced_Journies">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Pickup" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Destination" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="DayPrice" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="NightPrice" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="DeletedFlag" Type="Boolean" />
+          <Property Name="Created" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Updated" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Job">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Pickup" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="Destination" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="PaxName" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="PaxEmail" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="PaxMobileNo" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="NoOfPassengers" Type="Int32" />
+          <Property Name="Distance" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="DurationMinutes" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Fare" Type="Double" />
+          <Property Name="MeetandGreetCharges" Type="Double" />
+          <Property Name="VehicleTypeCharges" Type="Double" />
+          <Property Name="OtherCharges" Type="Double" />
+          <Property Name="Discount" Type="Double" />
+          <Property Name="JobStatus" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="DateTimePickup" Type="DateTime" Precision="3" />
+          <Property Name="DriverNo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Created" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Updated" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="DeletedFlag" Type="Boolean" />
+          <Property Name="IsPaid" Type="Boolean" />
+          <Property Name="PaymentMethod" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="VehicleRequiredID" Type="Int32" />
+          <Property Name="DirverComm" Type="Double" />
+          <Property Name="IsMG" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="JobsOld">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Pickup" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="Destination" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="PassengerName" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="NoOfPassengers" Type="Int32" />
+          <Property Name="Fare" Type="Double" />
+          <Property Name="Discount" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="JobStatus" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="DateTimePickup" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Notes" Type="String" MaxLength="600" FixedLength="false" Unicode="false" />
+          <Property Name="DriverNo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Created" Type="DateTime" Precision="0" />
+          <Property Name="CreatedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Updated" Type="DateTime" Precision="0" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="DeletedFlag" Type="Boolean" />
+          <Property Name="PaidTF" Type="Boolean" />
+          <Property Name="PaymentMethod" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="VehicleRequiredID" Type="Int32" />
+          <Property Name="DirverComm" Type="Double" />
+          <Property Name="MeetAndGreet" Type="Boolean" />
+          <Property Name="Distance" Type="Double" />
+          <Property Name="DurationMinutes" Type="Int32" />
+        </EntityType>
+        <EntityType Name="JobsPaymentTypes_LK">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ShortDesc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Created" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Updated" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DeletedFlag" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="Price">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Pickup" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Destination" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="DayPrice" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="NightPrice" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="DeletedFlag" Type="Boolean" />
+          <Property Name="Created" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="SettingsFare">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BaseRate" Type="Decimal" Precision="5" Scale="2" Nullable="false" />
+          <Property Name="BaseRatePerDistance" Type="Decimal" Precision="5" Scale="2" Nullable="false" />
+          <Property Name="BaseRateDistanceType" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="StartMeterFare" Type="Decimal" Precision="5" Scale="2" />
+          <Property Name="StartMeterFarePerDistanceType" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="DeletedFlag" Type="Boolean" Nullable="false" />
+          <Property Name="Created" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Updated" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="TaxiCompany">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CompanyName" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="Address" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="Town" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="County" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Country" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="PostCode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Telephone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Notes" Type="String" MaxLength="600" FixedLength="false" Unicode="false" />
+          <Property Name="Created" Type="DateTime" Precision="0" />
+          <Property Name="CreatedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Updated" Type="DateTime" Precision="0" />
+          <Property Name="UpdatedBy" Type="Binary" MaxLength="20" FixedLength="false" />
+          <Property Name="DeletedFlag" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="TownsVillage">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TownsVillages" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="County" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="Country" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DeletedFlag" Type="Boolean" />
+          <Property Name="Created" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="UsersBlacklist">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IP" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ExpireDays" Type="Int32" />
+          <Property Name="Created" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="DeletedFlag" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="VehicleTypes_LK">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="NoOfPeople" Type="Int32" />
+          <Property Name="LargeSuitecase" Type="Byte" />
+          <Property Name="MediumSuitecase" Type="Byte" />
+          <Property Name="WheelChairAccessible" Type="Boolean" />
+          <Property Name="PercentIncreament" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+          <Property Name="VehImage" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Created" Type="DateTime" Precision="0" />
+          <Property Name="CreatedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Updated" Type="DateTime" Precision="0" />
+          <Property Name="UpdatedBy" Type="Binary" MaxLength="20" FixedLength="false" />
+          <Property Name="DeletedFlag" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="Visitor">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Visitor1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Created" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Updated" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Driver">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="Name" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DriverNo" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Address1" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Address2" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Town" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="PostCode" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="TelNo" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="MobileNo" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="VehicleID" Type="Byte" />
+          <Property Name="Created" Type="DateTime" Precision="0" />
+          <Property Name="CreatedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Updated" Type="DateTime" Precision="0" />
+          <Property Name="UpdatedBy" Type="Binary" MaxLength="20" FixedLength="false" />
+          <Property Name="DeletedFlag" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="DriversStatu">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DriverNo" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="Location" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Created" Type="DateTime" Precision="0" />
+          <Property Name="CreatedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Updated" Type="DateTime" Precision="0" />
+          <Property Name="UpdatedBy" Type="Binary" MaxLength="20" FixedLength="false" />
+          <Property Name="DeletedFlag" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="JobsNotes2">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Notes" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Created" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Updated" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DeletedFlag" Type="Boolean" />
+          <Property Name="JobID" Type="Int32" />
+        </EntityType>
+        <EntityType Name="PaxDetail">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="JobID" />
+            <PropertyRef Name="Name" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="JobID" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Address1" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Address2" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Town" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="PostCode" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="TelNo" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="MobileNo" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Created" Type="DateTime" Precision="0" />
+          <Property Name="CreatedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Updated" Type="DateTime" Precision="0" />
+          <Property Name="UpdatedBy" Type="Binary" MaxLength="20" FixedLength="false" />
+          <Property Name="DeletedFlag" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="Setting">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="Description" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Description" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Value" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Created" Type="DateTime" Precision="0" />
+          <Property Name="CreatedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Updated" Type="DateTime" Precision="0" />
+          <Property Name="UpdatedBy" Type="Binary" MaxLength="20" FixedLength="false" />
+          <Property Name="DeletedFlag" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="SettingsTmp">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="Description" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Description" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Value" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Created" Type="DateTime" Precision="0" />
+          <Property Name="CreatedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Updated" Type="DateTime" Precision="0" />
+          <Property Name="UpdatedBy" Type="Binary" MaxLength="20" FixedLength="false" />
+          <Property Name="DeletedFlag" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UserID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IsSuperAdmin" Type="Boolean" />
+          <Property Name="IsAdmin" Type="Boolean" />
+          <Property Name="IsUser" Type="Boolean" />
+          <Property Name="DeletedFlag" Type="Boolean" />
+          <Property Name="Created" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="vw_JobswithNotes">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Pickup" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="Destination" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="PaxName" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="PaxEmail" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="PaxMobileNo" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="NoOfPassengers" Type="Int32" />
+          <Property Name="Distance" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="DurationMinutes" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Fare" Type="Double" />
+          <Property Name="MeetandGreetCharges" Type="Double" />
+          <Property Name="VehicleTypeCharges" Type="Double" />
+          <Property Name="OtherCharges" Type="Double" />
+          <Property Name="Discount" Type="Double" />
+          <Property Name="JobStatus" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="DateTimePickup" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="DriverNo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Created" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Updated" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="DeletedFlag" Type="Boolean" />
+          <Property Name="IsPaid" Type="Boolean" />
+          <Property Name="PaymentMethod" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="VehicleRequiredID" Type="Int32" />
+          <Property Name="DirverComm" Type="Double" />
+          <Property Name="IsMG" Type="Boolean" />
+          <Property Name="Notes" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="vw_TownsVillages">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TownsVillages" Type="String" MaxLength="354" FixedLength="false" Unicode="false" />
+          <Property Name="Created" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DeletedFlag" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="vw_TownsVillages_DISTINCT">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="TownsVillages" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="DeletedFlag" Type="Boolean" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="vw_VehicleSelector">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="NoOfPeople" Type="Int32" />
+          <Property Name="LargeSuitecase" Type="Byte" />
+          <Property Name="MediumSuitecase" Type="Byte" />
+          <Property Name="WheelChairAccessible" Type="Boolean" />
+          <Property Name="PercentIncreament" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+          <Property Name="VehImage" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Created" Type="DateTime" Precision="0" />
+          <Property Name="CreatedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Updated" Type="DateTime" Precision="0" />
+          <Property Name="UpdatedBy" Type="Binary" MaxLength="20" FixedLength="false" />
+          <Property Name="DeletedFlag" Type="Boolean" />
+        </EntityType>
+        <EntityContainer Name="TaxiBoxEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Airports" EntityType="Self.Airport" />
+          <EntitySet Name="Authors" EntityType="Self.Author" />
+          <EntitySet Name="autogenerateinfoes" EntityType="Self.autogenerateinfo" />
+          <EntitySet Name="CarTypes" EntityType="Self.CarType" />
+          <EntitySet Name="Cookies" EntityType="Self.Cooky" />
+          <EntitySet Name="Counters" EntityType="Self.Counter" />
+          <EntitySet Name="FaresFromGatwicks" EntityType="Self.FaresFromGatwick" />
+          <EntitySet Name="FixedPriced_Journies" EntityType="Self.FixedPriced_Journies" />
+          <EntitySet Name="Jobs" EntityType="Self.Job" />
+          <EntitySet Name="JobsOlds" EntityType="Self.JobsOld" />
+          <EntitySet Name="JobsPaymentTypes_LK" EntityType="Self.JobsPaymentTypes_LK" />
+          <EntitySet Name="Prices" EntityType="Self.Price" />
+          <EntitySet Name="SettingsFares" EntityType="Self.SettingsFare" />
+          <EntitySet Name="TaxiCompanies" EntityType="Self.TaxiCompany" />
+          <EntitySet Name="TownsVillages" EntityType="Self.TownsVillage" />
+          <EntitySet Name="UsersBlacklists" EntityType="Self.UsersBlacklist" />
+          <EntitySet Name="VehicleTypes_LK" EntityType="Self.VehicleTypes_LK" />
+          <EntitySet Name="Visitors" EntityType="Self.Visitor" />
+          <EntitySet Name="Drivers" EntityType="Self.Driver" />
+          <EntitySet Name="DriversStatus" EntityType="Self.DriversStatu" />
+          <EntitySet Name="JobsNotes2" EntityType="Self.JobsNotes2" />
+          <EntitySet Name="PaxDetails" EntityType="Self.PaxDetail" />
+          <EntitySet Name="Settings" EntityType="Self.Setting" />
+          <EntitySet Name="SettingsTmps" EntityType="Self.SettingsTmp" />
+          <EntitySet Name="Users" EntityType="Self.User" />
+          <EntitySet Name="vw_JobswithNotes" EntityType="Self.vw_JobswithNotes" />
+          <EntitySet Name="vw_TownsVillages" EntityType="Self.vw_TownsVillages" />
+          <EntitySet Name="vw_TownsVillages_DISTINCT" EntityType="Self.vw_TownsVillages_DISTINCT" />
+          <EntitySet Name="vw_VehicleSelector" EntityType="Self.vw_VehicleSelector" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="TaxiBoxModelStoreContainer" CdmEntityContainer="TaxiBoxEntities">
+          <EntitySetMapping Name="Airports">
+            <EntityTypeMapping TypeName="TaxiBoxModel.Airport">
+              <MappingFragment StoreEntitySet="Airports">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Airports" ColumnName="Airports" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="DeletedFlag" ColumnName="DeletedFlag" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Authors">
+            <EntityTypeMapping TypeName="TaxiBoxModel.Author">
+              <MappingFragment StoreEntitySet="Author">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="autogenerateinfoes">
+            <EntityTypeMapping TypeName="TaxiBoxModel.autogenerateinfo">
+              <MappingFragment StoreEntitySet="autogenerateinfo">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="WebServiceName" ColumnName="WebServiceName" />
+                <ScalarProperty Name="TableName" ColumnName="TableName" />
+                <ScalarProperty Name="Datacomponentname" ColumnName="Datacomponentname" />
+                <ScalarProperty Name="BusinessComponentname" ColumnName="BusinessComponentname" />
+                <ScalarProperty Name="FetchSP" ColumnName="FetchSP" />
+                <ScalarProperty Name="InsertSP" ColumnName="InsertSP" />
+                <ScalarProperty Name="UpdateSP" ColumnName="UpdateSP" />
+                <ScalarProperty Name="DeleteSP" ColumnName="DeleteSP" />
+                <ScalarProperty Name="ReturnDataset" ColumnName="ReturnDataset" />
+                <ScalarProperty Name="ReturnDataReader" ColumnName="ReturnDataReader" />
+                <ScalarProperty Name="ReturnDataTable" ColumnName="ReturnDataTable" />
+                <ScalarProperty Name="SPU_ExecuteNonQuery" ColumnName="SPU_ExecuteNonQuery" />
+                <ScalarProperty Name="SPU_ExecuteScalar" ColumnName="SPU_ExecuteScalar" />
+                <ScalarProperty Name="ReturnXmlReader" ColumnName="ReturnXmlReader" />
+                <ScalarProperty Name="DeletedFlag" ColumnName="DeletedFlag" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CarTypes">
+            <EntityTypeMapping TypeName="TaxiBoxModel.CarType">
+              <MappingFragment StoreEntitySet="CarTypes">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="NoOfPeople" ColumnName="NoOfPeople" />
+                <ScalarProperty Name="LargeSuitecase" ColumnName="LargeSuitecase" />
+                <ScalarProperty Name="MediumSuitecase" ColumnName="MediumSuitecase" />
+                <ScalarProperty Name="WheelChairAccessible" ColumnName="WheelChairAccessible" />
+                <ScalarProperty Name="PercentIncreament" ColumnName="PercentIncreament" />
+                <ScalarProperty Name="VehImage" ColumnName="VehImage" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Updated" ColumnName="Updated" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="DeletedFlag" ColumnName="DeletedFlag" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cookies">
+            <EntityTypeMapping TypeName="TaxiBoxModel.Cooky">
+              <MappingFragment StoreEntitySet="Cookies">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="CookrieID" ColumnName="CookrieID" />
+                <ScalarProperty Name="Expires" ColumnName="Expires" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="Updated" ColumnName="Updated" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Counters">
+            <EntityTypeMapping TypeName="TaxiBoxModel.Counter">
+              <MappingFragment StoreEntitySet="Counter">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Counter1" ColumnName="Counter" />
+                <ScalarProperty Name="TotalCounter" ColumnName="TotalCounter" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="DeletedFlag" ColumnName="DeletedFlag" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FaresFromGatwicks">
+            <EntityTypeMapping TypeName="TaxiBoxModel.FaresFromGatwick">
+              <MappingFragment StoreEntitySet="FaresFromGatwick">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Dest" ColumnName="Dest" />
+                <ScalarProperty Name="Fare" ColumnName="Fare" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Updated" ColumnName="Updated" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="DeletedFlag" ColumnName="DeletedFlag" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FixedPriced_Journies">
+            <EntityTypeMapping TypeName="TaxiBoxModel.FixedPriced_Journies">
+              <MappingFragment StoreEntitySet="FixedPriced_Journies">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Pickup" ColumnName="Pickup" />
+                <ScalarProperty Name="Destination" ColumnName="Destination" />
+                <ScalarProperty Name="DayPrice" ColumnName="DayPrice" />
+                <ScalarProperty Name="NightPrice" ColumnName="NightPrice" />
+                <ScalarProperty Name="DeletedFlag" ColumnName="DeletedFlag" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Updated" ColumnName="Updated" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Jobs">
+            <EntityTypeMapping TypeName="TaxiBoxModel.Job">
+              <MappingFragment StoreEntitySet="Jobs">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Pickup" ColumnName="Pickup" />
+                <ScalarProperty Name="Destination" ColumnName="Destination" />
+                <ScalarProperty Name="PaxName" ColumnName="PaxName" />
+                <ScalarProperty Name="PaxEmail" ColumnName="PaxEmail" />
+                <ScalarProperty Name="PaxMobileNo" ColumnName="PaxMobileNo" />
+                <ScalarProperty Name="NoOfPassengers" ColumnName="NoOfPassengers" />
+                <ScalarProperty Name="Distance" ColumnName="Distance" />
+                <ScalarProperty Name="DurationMinutes" ColumnName="DurationMinutes" />
+                <ScalarProperty Name="Fare" ColumnName="Fare" />
+                <ScalarProperty Name="MeetandGreetCharges" ColumnName="MeetandGreetCharges" />
+                <ScalarProperty Name="VehicleTypeCharges" ColumnName="VehicleTypeCharges" />
+                <ScalarProperty Name="OtherCharges" ColumnName="OtherCharges" />
+                <ScalarProperty Name="Discount" ColumnName="Discount" />
+                <ScalarProperty Name="JobStatus" ColumnName="JobStatus" />
+                <ScalarProperty Name="DateTimePickup" ColumnName="DateTimePickup" />
+                <ScalarProperty Name="DriverNo" ColumnName="DriverNo" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Updated" ColumnName="Updated" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="DeletedFlag" ColumnName="DeletedFlag" />
+                <ScalarProperty Name="IsPaid" ColumnName="IsPaid" />
+                <ScalarProperty Name="PaymentMethod" ColumnName="PaymentMethod" />
+                <ScalarProperty Name="VehicleRequiredID" ColumnName="VehicleRequiredID" />
+                <ScalarProperty Name="DirverComm" ColumnName="DirverComm" />
+                <ScalarProperty Name="IsMG" ColumnName="IsMG" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="JobsOlds">
+            <EntityTypeMapping TypeName="TaxiBoxModel.JobsOld">
+              <MappingFragment StoreEntitySet="JobsOld">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Pickup" ColumnName="Pickup" />
+                <ScalarProperty Name="Destination" ColumnName="Destination" />
+                <ScalarProperty Name="PassengerName" ColumnName="PassengerName" />
+                <ScalarProperty Name="NoOfPassengers" ColumnName="NoOfPassengers" />
+                <ScalarProperty Name="Fare" ColumnName="Fare" />
+                <ScalarProperty Name="Discount" ColumnName="Discount" />
+                <ScalarProperty Name="JobStatus" ColumnName="JobStatus" />
+                <ScalarProperty Name="DateTimePickup" ColumnName="DateTimePickup" />
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
+                <ScalarProperty Name="DriverNo" ColumnName="DriverNo" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Updated" ColumnName="Updated" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="DeletedFlag" ColumnName="DeletedFlag" />
+                <ScalarProperty Name="PaidTF" ColumnName="PaidTF" />
+                <ScalarProperty Name="PaymentMethod" ColumnName="PaymentMethod" />
+                <ScalarProperty Name="VehicleRequiredID" ColumnName="VehicleRequiredID" />
+                <ScalarProperty Name="DirverComm" ColumnName="DirverComm" />
+                <ScalarProperty Name="MeetAndGreet" ColumnName="MeetAndGreet" />
+                <ScalarProperty Name="Distance" ColumnName="Distance" />
+                <ScalarProperty Name="DurationMinutes" ColumnName="DurationMinutes" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="JobsPaymentTypes_LK">
+            <EntityTypeMapping TypeName="TaxiBoxModel.JobsPaymentTypes_LK">
+              <MappingFragment StoreEntitySet="JobsPaymentTypes_LK">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="ShortDesc" ColumnName="ShortDesc" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Updated" ColumnName="Updated" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="DeletedFlag" ColumnName="DeletedFlag" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Prices">
+            <EntityTypeMapping TypeName="TaxiBoxModel.Price">
+              <MappingFragment StoreEntitySet="Prices">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Pickup" ColumnName="Pickup" />
+                <ScalarProperty Name="Destination" ColumnName="Destination" />
+                <ScalarProperty Name="DayPrice" ColumnName="DayPrice" />
+                <ScalarProperty Name="NightPrice" ColumnName="NightPrice" />
+                <ScalarProperty Name="DeletedFlag" ColumnName="DeletedFlag" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SettingsFares">
+            <EntityTypeMapping TypeName="TaxiBoxModel.SettingsFare">
+              <MappingFragment StoreEntitySet="SettingsFare">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="BaseRate" ColumnName="BaseRate" />
+                <ScalarProperty Name="BaseRatePerDistance" ColumnName="BaseRatePerDistance" />
+                <ScalarProperty Name="BaseRateDistanceType" ColumnName="BaseRateDistanceType" />
+                <ScalarProperty Name="StartMeterFare" ColumnName="StartMeterFare" />
+                <ScalarProperty Name="StartMeterFarePerDistanceType" ColumnName="StartMeterFarePerDistanceType" />
+                <ScalarProperty Name="DeletedFlag" ColumnName="DeletedFlag" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Updated" ColumnName="Updated" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TaxiCompanies">
+            <EntityTypeMapping TypeName="TaxiBoxModel.TaxiCompany">
+              <MappingFragment StoreEntitySet="TaxiCompanies">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Town" ColumnName="Town" />
+                <ScalarProperty Name="County" ColumnName="County" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="PostCode" ColumnName="PostCode" />
+                <ScalarProperty Name="Telephone" ColumnName="Telephone" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Updated" ColumnName="Updated" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="DeletedFlag" ColumnName="DeletedFlag" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TownsVillages">
+            <EntityTypeMapping TypeName="TaxiBoxModel.TownsVillage">
+              <MappingFragment StoreEntitySet="TownsVillages">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="TownsVillages" ColumnName="TownsVillages" />
+                <ScalarProperty Name="County" ColumnName="County" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="DeletedFlag" ColumnName="DeletedFlag" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UsersBlacklists">
+            <EntityTypeMapping TypeName="TaxiBoxModel.UsersBlacklist">
+              <MappingFragment StoreEntitySet="UsersBlacklist">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="IP" ColumnName="IP" />
+                <ScalarProperty Name="ExpireDays" ColumnName="ExpireDays" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="DeletedFlag" ColumnName="DeletedFlag" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VehicleTypes_LK">
+            <EntityTypeMapping TypeName="TaxiBoxModel.VehicleTypes_LK">
+              <MappingFragment StoreEntitySet="VehicleTypes_LK">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="NoOfPeople" ColumnName="NoOfPeople" />
+                <ScalarProperty Name="LargeSuitecase" ColumnName="LargeSuitecase" />
+                <ScalarProperty Name="MediumSuitecase" ColumnName="MediumSuitecase" />
+                <ScalarProperty Name="WheelChairAccessible" ColumnName="WheelChairAccessible" />
+                <ScalarProperty Name="PercentIncreament" ColumnName="PercentIncreament" />
+                <ScalarProperty Name="VehImage" ColumnName="VehImage" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Updated" ColumnName="Updated" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="DeletedFlag" ColumnName="DeletedFlag" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Visitors">
+            <EntityTypeMapping TypeName="TaxiBoxModel.Visitor">
+              <MappingFragment StoreEntitySet="Visitors">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Visitor1" ColumnName="Visitor" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Updated" ColumnName="Updated" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Drivers">
+            <EntityTypeMapping TypeName="TaxiBoxModel.Driver">
+              <MappingFragment StoreEntitySet="Drivers">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="DriverNo" ColumnName="DriverNo" />
+                <ScalarProperty Name="Address1" ColumnName="Address1" />
+                <ScalarProperty Name="Address2" ColumnName="Address2" />
+                <ScalarProperty Name="Town" ColumnName="Town" />
+                <ScalarProperty Name="PostCode" ColumnName="PostCode" />
+                <ScalarProperty Name="TelNo" ColumnName="TelNo" />
+                <ScalarProperty Name="MobileNo" ColumnName="MobileNo" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="VehicleID" ColumnName="VehicleID" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Updated" ColumnName="Updated" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="DeletedFlag" ColumnName="DeletedFlag" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DriversStatus">
+            <EntityTypeMapping TypeName="TaxiBoxModel.DriversStatu">
+              <MappingFragment StoreEntitySet="DriversStatus">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="DriverNo" ColumnName="DriverNo" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Updated" ColumnName="Updated" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="DeletedFlag" ColumnName="DeletedFlag" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="JobsNotes2">
+            <EntityTypeMapping TypeName="TaxiBoxModel.JobsNotes2">
+              <MappingFragment StoreEntitySet="JobsNotes2">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Updated" ColumnName="Updated" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="DeletedFlag" ColumnName="DeletedFlag" />
+                <ScalarProperty Name="JobID" ColumnName="JobID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PaxDetails">
+            <EntityTypeMapping TypeName="TaxiBoxModel.PaxDetail">
+              <MappingFragment StoreEntitySet="PaxDetails">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="JobID" ColumnName="JobID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Address1" ColumnName="Address1" />
+                <ScalarProperty Name="Address2" ColumnName="Address2" />
+                <ScalarProperty Name="Town" ColumnName="Town" />
+                <ScalarProperty Name="PostCode" ColumnName="PostCode" />
+                <ScalarProperty Name="TelNo" ColumnName="TelNo" />
+                <ScalarProperty Name="MobileNo" ColumnName="MobileNo" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Updated" ColumnName="Updated" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="DeletedFlag" ColumnName="DeletedFlag" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Settings">
+            <EntityTypeMapping TypeName="TaxiBoxModel.Setting">
+              <MappingFragment StoreEntitySet="Settings">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Value" ColumnName="Value" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Updated" ColumnName="Updated" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="DeletedFlag" ColumnName="DeletedFlag" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SettingsTmps">
+            <EntityTypeMapping TypeName="TaxiBoxModel.SettingsTmp">
+              <MappingFragment StoreEntitySet="SettingsTmp">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Value" ColumnName="Value" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Updated" ColumnName="Updated" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="DeletedFlag" ColumnName="DeletedFlag" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="TaxiBoxModel.User">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="IsSuperAdmin" ColumnName="IsSuperAdmin" />
+                <ScalarProperty Name="IsAdmin" ColumnName="IsAdmin" />
+                <ScalarProperty Name="IsUser" ColumnName="IsUser" />
+                <ScalarProperty Name="DeletedFlag" ColumnName="DeletedFlag" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vw_JobswithNotes">
+            <EntityTypeMapping TypeName="TaxiBoxModel.vw_JobswithNotes">
+              <MappingFragment StoreEntitySet="vw_JobswithNotes">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Pickup" ColumnName="Pickup" />
+                <ScalarProperty Name="Destination" ColumnName="Destination" />
+                <ScalarProperty Name="PaxName" ColumnName="PaxName" />
+                <ScalarProperty Name="PaxEmail" ColumnName="PaxEmail" />
+                <ScalarProperty Name="PaxMobileNo" ColumnName="PaxMobileNo" />
+                <ScalarProperty Name="NoOfPassengers" ColumnName="NoOfPassengers" />
+                <ScalarProperty Name="Distance" ColumnName="Distance" />
+                <ScalarProperty Name="DurationMinutes" ColumnName="DurationMinutes" />
+                <ScalarProperty Name="Fare" ColumnName="Fare" />
+                <ScalarProperty Name="MeetandGreetCharges" ColumnName="MeetandGreetCharges" />
+                <ScalarProperty Name="VehicleTypeCharges" ColumnName="VehicleTypeCharges" />
+                <ScalarProperty Name="OtherCharges" ColumnName="OtherCharges" />
+                <ScalarProperty Name="Discount" ColumnName="Discount" />
+                <ScalarProperty Name="JobStatus" ColumnName="JobStatus" />
+                <ScalarProperty Name="DateTimePickup" ColumnName="DateTimePickup" />
+                <ScalarProperty Name="DriverNo" ColumnName="DriverNo" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Updated" ColumnName="Updated" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="DeletedFlag" ColumnName="DeletedFlag" />
+                <ScalarProperty Name="IsPaid" ColumnName="IsPaid" />
+                <ScalarProperty Name="PaymentMethod" ColumnName="PaymentMethod" />
+                <ScalarProperty Name="VehicleRequiredID" ColumnName="VehicleRequiredID" />
+                <ScalarProperty Name="DirverComm" ColumnName="DirverComm" />
+                <ScalarProperty Name="IsMG" ColumnName="IsMG" />
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vw_TownsVillages">
+            <EntityTypeMapping TypeName="TaxiBoxModel.vw_TownsVillages">
+              <MappingFragment StoreEntitySet="vw_TownsVillages">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="TownsVillages" ColumnName="TownsVillages" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="DeletedFlag" ColumnName="DeletedFlag" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vw_TownsVillages_DISTINCT">
+            <EntityTypeMapping TypeName="TaxiBoxModel.vw_TownsVillages_DISTINCT">
+              <MappingFragment StoreEntitySet="vw_TownsVillages_DISTINCT">
+                <ScalarProperty Name="TownsVillages" ColumnName="TownsVillages" />
+                <ScalarProperty Name="DeletedFlag" ColumnName="DeletedFlag" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vw_VehicleSelector">
+            <EntityTypeMapping TypeName="TaxiBoxModel.vw_VehicleSelector">
+              <MappingFragment StoreEntitySet="vw_VehicleSelector">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="NoOfPeople" ColumnName="NoOfPeople" />
+                <ScalarProperty Name="LargeSuitecase" ColumnName="LargeSuitecase" />
+                <ScalarProperty Name="MediumSuitecase" ColumnName="MediumSuitecase" />
+                <ScalarProperty Name="WheelChairAccessible" ColumnName="WheelChairAccessible" />
+                <ScalarProperty Name="PercentIncreament" ColumnName="PercentIncreament" />
+                <ScalarProperty Name="VehImage" ColumnName="VehImage" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Updated" ColumnName="Updated" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="DeletedFlag" ColumnName="DeletedFlag" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

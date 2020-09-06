@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RptDataSource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="TaxiBox">
+  <ConnectionProperties>
+    <Extension>SQL</Extension>
+    <ConnectString>Data Source=.\sqlexpress;Initial Catalog=TaxiBox</ConnectString>
+    <IntegratedSecurity>true</IntegratedSecurity>
+    <Prompt>Specify a user name and password for data source TaxiBox</Prompt>
+  </ConnectionProperties>
+  <DataSourceID>8b2f1883-2c04-4ad7-954a-69702b326abc</DataSourceID>
+</RptDataSource>

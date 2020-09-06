@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<?xml-stylesheet type="text/xsl" href="StudentsXSLT.xslt" ?>
+<Students>
+  <SchoolName>PN Boys</SchoolName>
+  <Student Id="1">
+    <Name>SAJID</Name>
+    <Country>PAKISTAN</Country>
+    <Scores>
+      <Score1>120</Score1>
+      <Score2>220</Score2>
+      <Score3>453</Score3>
+    </Scores>
+  </Student>
+  <Student Id="2">
+    <Name>ABID</Name>
+    <Country>PAKISTAN</Country>
+    <Scores>
+      <Score1>310</Score1>
+      <Score2>210</Score2>
+      <Score3>253</Score3>
+    </Scores>
+  </Student>
+  <Student Id="3">
+    <Name>SINGH</Name>
+    <Country>INDIA</Country>
+    <Scores>
+      <Score1>110</Score1>
+      <Score2>212</Score2>
+      <Score3>353</Score3>
+    </Scores>
+  </Student>
+  <Student Id="4">
+    <Name>JAMES</Name>
+    <Country>ENGLAND</Country>
+    <Scores>
+      <Score1>210</Score1>
+      <Score2>20</Score2>
+      <Score3>153</Score3>
+    </Scores>
+  </Student>
+</Students>

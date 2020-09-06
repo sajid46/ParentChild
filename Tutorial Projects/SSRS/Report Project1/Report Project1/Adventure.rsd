@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SharedDataSet xmlns="http://schemas.microsoft.com/sqlserver/reporting/2010/01/shareddatasetdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <DataSet Name="DataSet1">
+    <Query>
+      <DataSourceReference>AdventureWork2012</DataSourceReference>
+      <CommandText>SELECT
+  vw_sale.OrderDate
+  ,vw_sale.DueDate
+  ,vw_sale.ShipDate
+  ,vw_sale.Status
+  ,vw_sale.POH_Status
+  ,vw_sale.FirstName
+  ,vw_sale.MiddleName
+  ,vw_sale.PersonID
+  ,vw_sale.ProductID
+  ,vw_sale.Product
+  ,vw_sale.OrderQty
+  ,vw_sale.UnitPrice
+  ,vw_sale.UnitPriceDiscount
+  ,vw_sale.LineTotal
+FROM
+  vw_sale</CommandText>
+      <rd:DesignerState>
+        <QueryDefinition xmlns="http://schemas.microsoft.com/ReportingServices/QueryDefinition/Relational">
+          <SelectedColumns>
+            <ColumnExpression ColumnOwner="vw_sale" ColumnName="OrderDate" />
+            <ColumnExpression ColumnOwner="vw_sale" ColumnName="DueDate" />
+            <ColumnExpression ColumnOwner="vw_sale" ColumnName="ShipDate" />
+            <ColumnExpression ColumnOwner="vw_sale" ColumnName="Status" />
+            <ColumnExpression ColumnOwner="vw_sale" ColumnName="POH_Status" />
+            <ColumnExpression ColumnOwner="vw_sale" ColumnName="FirstName" />
+            <ColumnExpression ColumnOwner="vw_sale" ColumnName="MiddleName" />
+            <ColumnExpression ColumnOwner="vw_sale" ColumnName="PersonID" />
+            <ColumnExpression ColumnOwner="vw_sale" ColumnName="ProductID" />
+            <ColumnExpression ColumnOwner="vw_sale" ColumnName="Product" />
+            <ColumnExpression ColumnOwner="vw_sale" ColumnName="OrderQty" />
+            <ColumnExpression ColumnOwner="vw_sale" ColumnName="UnitPrice" />
+            <ColumnExpression ColumnOwner="vw_sale" ColumnName="UnitPriceDiscount" />
+            <ColumnExpression ColumnOwner="vw_sale" ColumnName="LineTotal" />
+          </SelectedColumns>
+        </QueryDefinition>
+      </rd:DesignerState>
+    </Query>
+    <Fields>
+      <Field Name="OrderDate">
+        <DataField>OrderDate</DataField>
+        <rd:TypeName>System.DateTime</rd:TypeName>
+      </Field>
+      <Field Name="DueDate">
+        <DataField>DueDate</DataField>
+        <rd:TypeName>System.DateTime</rd:TypeName>
+      </Field>
+      <Field Name="ShipDate">
+        <DataField>ShipDate</DataField>
+        <rd:TypeName>System.DateTime</rd:TypeName>
+      </Field>
+      <Field Name="Status">
+        <DataField>Status</DataField>
+        <rd:TypeName>System.Byte</rd:TypeName>
+      </Field>
+      <Field Name="POH_Status">
+        <DataField>POH_Status</DataField>
+        <rd:TypeName>System.Byte</rd:TypeName>
+      </Field>
+      <Field Name="FirstName">
+        <DataField>FirstName</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="MiddleName">
+        <DataField>MiddleName</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="PersonID">
+        <DataField>PersonID</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="ProductID">
+        <DataField>ProductID</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="Product">
+        <DataField>Product</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="OrderQty">
+        <DataField>OrderQty</DataField>
+        <rd:TypeName>System.Int16</rd:TypeName>
+      </Field>
+      <Field Name="UnitPrice">
+        <DataField>UnitPrice</DataField>
+        <rd:TypeName>System.Decimal</rd:TypeName>
+      </Field>
+      <Field Name="UnitPriceDiscount">
+        <DataField>UnitPriceDiscount</DataField>
+        <rd:TypeName>System.Decimal</rd:TypeName>
+      </Field>
+      <Field Name="LineTotal">
+        <DataField>LineTotal</DataField>
+        <rd:TypeName>System.Decimal</rd:TypeName>
+      </Field>
+    </Fields>
+  </DataSet>
+</SharedDataSet>

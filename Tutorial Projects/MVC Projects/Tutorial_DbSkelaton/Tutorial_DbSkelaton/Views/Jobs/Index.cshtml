@@ -1,0 +1,133 @@
+﻿@model IEnumerable<Tutorial_DbSkelaton.EF.Job>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+
+<ul class="css-ul">
+    <li>
+        <a href="#" onclick="fn_displaytable(this)">MVC Table</a>
+    </li>
+    <li>
+        <a href="#"  onclick="fn_displaytable(this)">AJAX Table</a>
+    </li>
+</ul>
+<div id="div-mvctable">
+    <table class="table">
+        <tr>
+            <th>
+
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.DateTimePickup)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Pickup)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Destination)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PaxName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PaxMobileNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NoOfPassengers)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Distance)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DurationMinutes)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Fare)
+            </th>
+
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                @{
+                    if (@DateTime.Now > Convert.ToDateTime(@Html.DisplayFor(modelItem => item.DateTimePickup).ToString()))
+                    {
+                        <td class="blink22"></td>
+                    }
+                    else
+                    {
+                        <td></td>
+                    }
+                }
+
+
+
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.DateTimePickup)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Pickup)
+                </td>
+                @{
+                    if (@Html.DisplayFor(modelItem => item.Destination).ToString() == "Crawley Down")
+                    {
+                        <td style="background-color: yellow;">
+                            @Html.DisplayFor(modelItem => item.Destination)
+                        </td>
+                    }
+                    else
+                    {
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Destination)
+                        </td>
+                    }
+                }
+                <td>
+                    @Html.DisplayFor(modelItem => item.PaxName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PaxMobileNo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NoOfPassengers)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Distance)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DurationMinutes)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Fare)
+                </td>
+
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>
+
+<div id="div-ajaxtable">
+
+    @Html.Partial("JobsPartial")
+    
+</div>

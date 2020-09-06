@@ -1,0 +1,79 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+/*=====================================================================================*/
+table tbody tr th{
+    background-color: #7c3939;
+    color: white;
+}
+
+table tbody tr:nth-child(2n+1) {
+    background-color: #eee7e7;
+    
+}
+/*===========================================================================================*/
+/*#region blink */
+
+.blink22 {
+    animation: blink22-animation 1s infinite;
+    -webkit-animation: blink22-animation 1s infinite;
+}
+
+@keyframes blink22-animation {
+    to {
+        background-color: red;
+    }
+}
+
+@-webkit-keyframes blink22-animation {
+    to {
+        background-color: blue;
+    }
+}
+
+/*#endregion */
+/*===========================================================================================*/
+.css-ul {
+    overflow: hidden;
+    border-bottom: 1px solid blue;
+    text-align: center;
+    resize: horizontal;
+    list-style-type: none;
+}
+
+.css-ul li {
+    float: left;
+    border: 1px solid blue;
+    border-bottom: none;
+}
+
+    .css-ul li a {
+        width: 100px;
+        display: block;
+        border-bottom: 1px solid white;
+        background-color: antiquewhite;
+        margin-top: 2px;
+    }
+

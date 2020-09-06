@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.852
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Crud2_EF", "Crud2_EF\Crud2_EF.csproj", "{73353F3B-5A2E-4492-9304-AEA932739EA7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Crud2_EF.Tests", "Crud2_EF.Tests\Crud2_EF.Tests.csproj", "{0FFBAA4D-B738-4B6C-87C6-DFA272148813}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{73353F3B-5A2E-4492-9304-AEA932739EA7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{73353F3B-5A2E-4492-9304-AEA932739EA7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{73353F3B-5A2E-4492-9304-AEA932739EA7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{73353F3B-5A2E-4492-9304-AEA932739EA7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0FFBAA4D-B738-4B6C-87C6-DFA272148813}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0FFBAA4D-B738-4B6C-87C6-DFA272148813}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0FFBAA4D-B738-4B6C-87C6-DFA272148813}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0FFBAA4D-B738-4B6C-87C6-DFA272148813}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A9D19E3C-2CE8-4818-9C22-03E5EA679457}
+	EndGlobalSection
+EndGlobal

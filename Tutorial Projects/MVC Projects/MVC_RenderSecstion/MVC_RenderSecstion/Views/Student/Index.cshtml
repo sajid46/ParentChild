@@ -1,0 +1,60 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+<div class="col-md-10">
+    <table id="tblStudent2">
+        <thead>
+            <tr>
+                <td>ID</td>
+                <td>Student Name</td>
+                <td>Student Address</td>
+                <td>Action</td>
+            </tr>
+        </thead>
+
+        <tbody>
+
+        </tbody>
+        
+    </table>
+</div>
+
+@section Scripts
+    {
+    <script type="text/javascript">
+        
+        LoadData();
+        
+        function LoadData() {
+            $("#tblStudent2 tbody tr").remove();
+        $.ajax({
+            type: 'POST',
+            url: '@Url.Action("GetStudents")',
+            dataType: 'json',
+            data: { id: '' },
+            success: function (data) {
+                var items = '';
+                $.each(data, function (i, item) {
+                    var rows = "<tr>"
+                    + "<td class='prtoducttd'>" + item.StudentID + "</td>"
+                    + "<td class='prtoducttd'>" + item.StudentName + "</td>"
+                        + "<td class='prtoducttd'>" + item.StudentAddress + "</td>"
+                        + "<td class='prtoducttd'><button id='" + item.StudentID +  "' onclick='fn_delete(this)' class='btn btn-danger btn-sm'>Delete</button> </td>"
+                    + "</tr>";
+                    $('#tblStudent2 tbody').append(rows);
+                });
+            },
+            error: function (ex) {
+                var r = jQuery.parseJSON(response.responseText);
+                alert("Message: " + r.Message);
+                alert("StackTrace: " + r.StackTrace);
+                alert("ExceptionType: " + r.ExceptionType);
+            }
+        });
+        return false;
+        }
+    </script>
+    }

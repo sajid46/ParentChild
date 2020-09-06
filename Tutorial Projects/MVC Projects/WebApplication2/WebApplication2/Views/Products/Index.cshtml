@@ -1,0 +1,107 @@
+﻿@model IEnumerable<WebApplication2.Model.ProductModel2>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create" , FormMethod.Post, new { @class = "btn btn-default btn-lg" })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ProductSubcategoryID)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProductNumber)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.Color)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.StandardCost)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ListPrice)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Size)
+        </th>
+
+                
+
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+
+            @{
+                if (item.ProductSubcategoryID == 1)
+                {
+                    <img src="~/Images/cycle.JPG" /><br />
+                                                    <small>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cycle&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</small>
+                }
+                else if (item.ProductSubcategoryID == 2)
+                {
+                    <img src="~/Images/component.jpg" /><br />
+                    <small>Component</small>
+                }
+                else if (item.ProductSubcategoryID == 3)
+                {
+                    <img src="~/Images/clothing.jpg" /><br />
+                                                       <small>&nbsp;Clothing&nbsp;</small>
+                }
+                else
+                {
+                    <img src="~/Images/accessories.jpg" /><br />
+                    <small>Accessories</small>
+                }
+            }
+        </td>
+
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProductNumber)
+        </td>
+
+        <td>
+            @Html.DisplayFor(modelItem => item.Color)
+        </td>
+
+        <td>
+            @Html.DisplayFor(modelItem => item.StandardCost)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ListPrice)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Size)
+        </td>
+
+      
+
+
+        
+
+
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.ProductID }, new { @class = "btn btn-warning btn-sm" }) |
+            @Html.ActionLink("Details", "Details", new { id = item.ProductID }, new { @class = "btn btn-info btn-sm" }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.ProductID }, new { @class = "btn btn-danger btn-sm" })
+        </td>
+    </tr>
+}
+
+</table>

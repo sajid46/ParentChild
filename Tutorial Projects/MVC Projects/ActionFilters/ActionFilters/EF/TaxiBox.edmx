@@ -1,0 +1,300 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="TaxiBoxModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Jobs">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Pickup" Type="varchar" MaxLength="1000" />
+          <Property Name="Destination" Type="varchar" MaxLength="1000" />
+          <Property Name="PaxName" Type="varchar" MaxLength="30" />
+          <Property Name="PaxEmail" Type="nvarchar" MaxLength="500" />
+          <Property Name="PaxMobileNo" Type="nvarchar" MaxLength="20" />
+          <Property Name="NoOfPassengers" Type="int" />
+          <Property Name="Distance" Type="nvarchar" MaxLength="20" />
+          <Property Name="DurationMinutes" Type="nvarchar" MaxLength="20" />
+          <Property Name="Fare" Type="float" />
+          <Property Name="MeetandGreetCharges" Type="float" />
+          <Property Name="VehicleTypeCharges" Type="float" />
+          <Property Name="OtherCharges" Type="float" />
+          <Property Name="Discount" Type="float" />
+          <Property Name="JobStatus" Type="varchar" MaxLength="20" />
+          <Property Name="DateTimePickup" Type="datetime" />
+          <Property Name="DriverNo" Type="varchar" MaxLength="30" />
+          <Property Name="Created" Type="datetime" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="100" />
+          <Property Name="Updated" Type="datetime" />
+          <Property Name="UpdatedBy" Type="nvarchar" MaxLength="100" />
+          <Property Name="DeletedFlag" Type="bit" />
+          <Property Name="IsPaid" Type="bit" />
+          <Property Name="PaymentMethod" Type="varchar" MaxLength="10" />
+          <Property Name="VehicleRequiredID" Type="int" />
+          <Property Name="DirverComm" Type="float" />
+          <Property Name="IsMG" Type="bit" />
+        </EntityType>
+        <EntityType Name="JobsOld">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Pickup" Type="varchar" MaxLength="1000" />
+          <Property Name="Destination" Type="varchar" MaxLength="1000" />
+          <Property Name="PassengerName" Type="varchar" MaxLength="30" />
+          <Property Name="NoOfPassengers" Type="int" />
+          <Property Name="Fare" Type="float" />
+          <Property Name="Discount" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="JobStatus" Type="varchar" MaxLength="20" />
+          <Property Name="DateTimePickup" Type="nvarchar" MaxLength="20" />
+          <Property Name="Notes" Type="varchar" MaxLength="600" />
+          <Property Name="DriverNo" Type="varchar" MaxLength="30" />
+          <Property Name="Created" Type="smalldatetime" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="100" />
+          <Property Name="Updated" Type="smalldatetime" />
+          <Property Name="UpdatedBy" Type="nvarchar" MaxLength="100" />
+          <Property Name="DeletedFlag" Type="bit" />
+          <Property Name="PaidTF" Type="bit" />
+          <Property Name="PaymentMethod" Type="varchar" MaxLength="10" />
+          <Property Name="VehicleRequiredID" Type="int" />
+          <Property Name="DirverComm" Type="float" />
+          <Property Name="MeetAndGreet" Type="bit" />
+          <Property Name="Distance" Type="float" />
+          <Property Name="DurationMinutes" Type="int" />
+        </EntityType>
+        <EntityType Name="VehicleTypes_LK">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="50" />
+          <Property Name="NoOfPeople" Type="int" />
+          <Property Name="LargeSuitecase" Type="tinyint" />
+          <Property Name="MediumSuitecase" Type="tinyint" />
+          <Property Name="WheelChairAccessible" Type="bit" />
+          <Property Name="PercentIncreament" Type="varchar" MaxLength="6" />
+          <Property Name="VehImage" Type="image" />
+          <Property Name="Created" Type="smalldatetime" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="20" />
+          <Property Name="Updated" Type="smalldatetime" />
+          <Property Name="UpdatedBy" Type="varbinary" MaxLength="20" />
+          <Property Name="DeletedFlag" Type="bit" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'TaxiBox.dbo.vw_FaresFromGatwick' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="vw_FaresFromGatwick">
+          <Property Name="Dest" Type="varchar" MaxLength="200" />
+          <Property Name="SaloonFare" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="EstateFare" Type="float" />
+          <Property Name="ExecutiveFare" Type="float" />
+          <Property Name="Seaters6Fare" Type="float" />
+          <Property Name="Seaters8Fare" Type="float" />
+          <Property Name="Seaters5Fare" Type="float" />
+        </EntityType>-->
+        <EntityContainer Name="TaxiBoxModelStoreContainer">
+          <EntitySet Name="Jobs" EntityType="Self.Jobs" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="JobsOld" EntityType="Self.JobsOld" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="VehicleTypes_LK" EntityType="Self.VehicleTypes_LK" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="TaxiBoxModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Job">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Pickup" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="Destination" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="PaxName" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="PaxEmail" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="PaxMobileNo" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="NoOfPassengers" Type="Int32" />
+          <Property Name="Distance" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="DurationMinutes" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Fare" Type="Double" />
+          <Property Name="MeetandGreetCharges" Type="Double" />
+          <Property Name="VehicleTypeCharges" Type="Double" />
+          <Property Name="OtherCharges" Type="Double" />
+          <Property Name="Discount" Type="Double" />
+          <Property Name="JobStatus" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="DateTimePickup" Type="DateTime" Precision="3" />
+          <Property Name="DriverNo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Created" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Updated" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="DeletedFlag" Type="Boolean" />
+          <Property Name="IsPaid" Type="Boolean" />
+          <Property Name="PaymentMethod" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="VehicleRequiredID" Type="Int32" />
+          <Property Name="DirverComm" Type="Double" />
+          <Property Name="IsMG" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="JobsOld">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Pickup" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="Destination" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="PassengerName" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="NoOfPassengers" Type="Int32" />
+          <Property Name="Fare" Type="Double" />
+          <Property Name="Discount" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="JobStatus" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="DateTimePickup" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Notes" Type="String" MaxLength="600" FixedLength="false" Unicode="false" />
+          <Property Name="DriverNo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Created" Type="DateTime" Precision="0" />
+          <Property Name="CreatedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Updated" Type="DateTime" Precision="0" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="DeletedFlag" Type="Boolean" />
+          <Property Name="PaidTF" Type="Boolean" />
+          <Property Name="PaymentMethod" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="VehicleRequiredID" Type="Int32" />
+          <Property Name="DirverComm" Type="Double" />
+          <Property Name="MeetAndGreet" Type="Boolean" />
+          <Property Name="Distance" Type="Double" />
+          <Property Name="DurationMinutes" Type="Int32" />
+        </EntityType>
+        <EntityType Name="VehicleTypes_LK">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="NoOfPeople" Type="Int32" />
+          <Property Name="LargeSuitecase" Type="Byte" />
+          <Property Name="MediumSuitecase" Type="Byte" />
+          <Property Name="WheelChairAccessible" Type="Boolean" />
+          <Property Name="PercentIncreament" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+          <Property Name="VehImage" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Created" Type="DateTime" Precision="0" />
+          <Property Name="CreatedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Updated" Type="DateTime" Precision="0" />
+          <Property Name="UpdatedBy" Type="Binary" MaxLength="20" FixedLength="false" />
+          <Property Name="DeletedFlag" Type="Boolean" />
+        </EntityType>
+        <EntityContainer Name="TaxiBoxEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Jobs" EntityType="Self.Job" />
+          <EntitySet Name="JobsOlds" EntityType="Self.JobsOld" />
+          <EntitySet Name="VehicleTypes_LK" EntityType="Self.VehicleTypes_LK" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="TaxiBoxModelStoreContainer" CdmEntityContainer="TaxiBoxEntities">
+          <EntitySetMapping Name="Jobs">
+            <EntityTypeMapping TypeName="TaxiBoxModel.Job">
+              <MappingFragment StoreEntitySet="Jobs">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Pickup" ColumnName="Pickup" />
+                <ScalarProperty Name="Destination" ColumnName="Destination" />
+                <ScalarProperty Name="PaxName" ColumnName="PaxName" />
+                <ScalarProperty Name="PaxEmail" ColumnName="PaxEmail" />
+                <ScalarProperty Name="PaxMobileNo" ColumnName="PaxMobileNo" />
+                <ScalarProperty Name="NoOfPassengers" ColumnName="NoOfPassengers" />
+                <ScalarProperty Name="Distance" ColumnName="Distance" />
+                <ScalarProperty Name="DurationMinutes" ColumnName="DurationMinutes" />
+                <ScalarProperty Name="Fare" ColumnName="Fare" />
+                <ScalarProperty Name="MeetandGreetCharges" ColumnName="MeetandGreetCharges" />
+                <ScalarProperty Name="VehicleTypeCharges" ColumnName="VehicleTypeCharges" />
+                <ScalarProperty Name="OtherCharges" ColumnName="OtherCharges" />
+                <ScalarProperty Name="Discount" ColumnName="Discount" />
+                <ScalarProperty Name="JobStatus" ColumnName="JobStatus" />
+                <ScalarProperty Name="DateTimePickup" ColumnName="DateTimePickup" />
+                <ScalarProperty Name="DriverNo" ColumnName="DriverNo" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Updated" ColumnName="Updated" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="DeletedFlag" ColumnName="DeletedFlag" />
+                <ScalarProperty Name="IsPaid" ColumnName="IsPaid" />
+                <ScalarProperty Name="PaymentMethod" ColumnName="PaymentMethod" />
+                <ScalarProperty Name="VehicleRequiredID" ColumnName="VehicleRequiredID" />
+                <ScalarProperty Name="DirverComm" ColumnName="DirverComm" />
+                <ScalarProperty Name="IsMG" ColumnName="IsMG" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="JobsOlds">
+            <EntityTypeMapping TypeName="TaxiBoxModel.JobsOld">
+              <MappingFragment StoreEntitySet="JobsOld">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Pickup" ColumnName="Pickup" />
+                <ScalarProperty Name="Destination" ColumnName="Destination" />
+                <ScalarProperty Name="PassengerName" ColumnName="PassengerName" />
+                <ScalarProperty Name="NoOfPassengers" ColumnName="NoOfPassengers" />
+                <ScalarProperty Name="Fare" ColumnName="Fare" />
+                <ScalarProperty Name="Discount" ColumnName="Discount" />
+                <ScalarProperty Name="JobStatus" ColumnName="JobStatus" />
+                <ScalarProperty Name="DateTimePickup" ColumnName="DateTimePickup" />
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
+                <ScalarProperty Name="DriverNo" ColumnName="DriverNo" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Updated" ColumnName="Updated" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="DeletedFlag" ColumnName="DeletedFlag" />
+                <ScalarProperty Name="PaidTF" ColumnName="PaidTF" />
+                <ScalarProperty Name="PaymentMethod" ColumnName="PaymentMethod" />
+                <ScalarProperty Name="VehicleRequiredID" ColumnName="VehicleRequiredID" />
+                <ScalarProperty Name="DirverComm" ColumnName="DirverComm" />
+                <ScalarProperty Name="MeetAndGreet" ColumnName="MeetAndGreet" />
+                <ScalarProperty Name="Distance" ColumnName="Distance" />
+                <ScalarProperty Name="DurationMinutes" ColumnName="DurationMinutes" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VehicleTypes_LK">
+            <EntityTypeMapping TypeName="TaxiBoxModel.VehicleTypes_LK">
+              <MappingFragment StoreEntitySet="VehicleTypes_LK">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="NoOfPeople" ColumnName="NoOfPeople" />
+                <ScalarProperty Name="LargeSuitecase" ColumnName="LargeSuitecase" />
+                <ScalarProperty Name="MediumSuitecase" ColumnName="MediumSuitecase" />
+                <ScalarProperty Name="WheelChairAccessible" ColumnName="WheelChairAccessible" />
+                <ScalarProperty Name="PercentIncreament" ColumnName="PercentIncreament" />
+                <ScalarProperty Name="VehImage" ColumnName="VehImage" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Updated" ColumnName="Updated" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="DeletedFlag" ColumnName="DeletedFlag" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

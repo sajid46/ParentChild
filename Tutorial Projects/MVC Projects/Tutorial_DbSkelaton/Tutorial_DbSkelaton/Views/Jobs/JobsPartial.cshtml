@@ -1,0 +1,177 @@
+﻿@model IEnumerable<Tutorial_DbSkelaton.EF.Job>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Pickup)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Destination)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PaxName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PaxEmail)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PaxMobileNo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NoOfPassengers)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Distance)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DurationMinutes)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Fare)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MeetandGreetCharges)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.VehicleTypeCharges)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OtherCharges)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Discount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.JobStatus)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateTimePickup)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DriverNo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Created)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CreatedBy)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Updated)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UpdatedBy)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DeletedFlag)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsPaid)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PaymentMethod)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.VehicleRequiredID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DirverComm)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsMG)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Pickup)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Destination)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PaxName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PaxEmail)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PaxMobileNo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NoOfPassengers)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Distance)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DurationMinutes)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Fare)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MeetandGreetCharges)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.VehicleTypeCharges)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OtherCharges)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Discount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.JobStatus)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateTimePickup)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DriverNo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Created)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreatedBy)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Updated)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UpdatedBy)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DeletedFlag)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsPaid)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PaymentMethod)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.VehicleRequiredID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DirverComm)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsMG)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>
