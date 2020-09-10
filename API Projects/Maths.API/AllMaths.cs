@@ -19,9 +19,14 @@ using System.Threading.Tasks;
         {
             return v1 * v2;
         }
+    
+        public double DivideTwoNumbers(double v1, double v2)
+        {
+            return v1 / v2;
+        }
 
-    public double DivideTwoNumbers(double v1, double v2)
-    {
-        return v1 / v2;
-    }
-}
+        public double squareRoot(double number)
+        {
+            return Math.Sqrt(number);
+        }
+ }
